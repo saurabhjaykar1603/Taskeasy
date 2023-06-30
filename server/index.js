@@ -1,7 +1,9 @@
-import express from 'express';
+import express, { json } from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 dotenv.config();
+
+import Task from './models/Task.js';
 
 const app = express();
 app.use(express.json());
@@ -16,12 +18,42 @@ async function connectMongoDB() {
 }
 connectMongoDB();
 
-app.get('/health',(req,res)=>{
+app.get('/health', (req, res) => {
     res.json({
-        success:true,
-        message:'All good'
+        success: true,
+        message: 'All good'
     })
 })
+
+// POST /task : to create task
+app.post('/task', async (req, res) => {
+    const { title, description } = req.body;
+
+    const newTask = new Task({
+        title: title,
+        description: description
+    })
+
+    const savedTask = await newTask.save();
+
+    res.json({
+        success: true,
+        message: 'Task Saved successfully',
+        data: savedTask
+
+    })
+
+});
+
+// GET /tasks : to fetched all task
+
+// GET /task : to fetched specific task
+
+// DELET /task/delet : to delete task
+
+// PUT /task
+
+
 
 
 const PORT = process.env.PORT || 5000;
