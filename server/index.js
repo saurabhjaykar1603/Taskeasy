@@ -46,6 +46,15 @@ app.post('/task', async (req, res) => {
 });
 
 // GET /tasks : to fetched all task
+app.get('/tasks',async(req,res)=>{
+    const tasks = await Task.find();
+
+    res.json({
+        success:true,
+        message:'All tasks Fetched successfully',
+        data: tasks
+    })
+});
 
 // GET /task : to fetched specific task
 
