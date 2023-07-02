@@ -46,17 +46,47 @@ app.post('/task', async (req, res) => {
 });
 
 // GET /tasks : to fetched all task
-app.get('/tasks',async(req,res)=>{
+app.get('/tasks', async (req, res) => {
     const tasks = await Task.find();
 
     res.json({
-        success:true,
-        message:'All tasks Fetched successfully',
+        success: true,
+        message: 'All tasks Fetched successfully',
         data: tasks
     })
 });
 
 // GET /task : to fetched specific task
+app.get('/task', async (req, res) => {
+    const taskId = req.query.taskId;
+
+    let task;
+    try {
+        task = await Task.findById(taskId);
+    }
+    catch (e) {
+        return res.json({
+            success: false,
+            message: e.message,
+            data: []
+        });
+    }
+
+    if (!task) {
+        return res.json({
+            success: false,
+            message: 'Task not found',
+            data: []
+        });
+    }
+
+    res.json({
+        success: true,
+        message: 'Task successfully Fetched',
+        data: task
+    })
+
+})
 
 // DELET /task/delet : to delete task
 
