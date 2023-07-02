@@ -101,6 +101,17 @@ app.post("/task/delete", async (req, res) => {
     });
 })
 // PUT /task
+app.put("/task", async (req, res) => {
+    const { taskId, title, description } = req.body;
+
+    const task = await Task.updateOne({ _id: taskId }, {
+        $set: { title: title, description: description }
+    })
+    res.json({
+        success:true,
+        message:'Task successfully Updated'
+    })
+});
 
 
 
