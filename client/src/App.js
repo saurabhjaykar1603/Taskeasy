@@ -1,11 +1,12 @@
 import React from 'react'
 import './App.css'
 
+
 function App() {
   return (
     <>
       <div>
-        <h1 className='text-center m-3'>Task Easy</h1>
+        <h1 className='text-center mb-3 mt-4 taskeasy-title'>Task Easy 📝</h1>
       </div>
 
       <div className="row align-items-md-stretch m-auto">

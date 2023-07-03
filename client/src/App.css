@@ -1,6 +1,15 @@
 body{
   margin:0;
   padding:0;
+background-color:#bcb4fb2e;
+font-family: 'Bree Serif', serif;
+
+  
+}
+.taskeasy-title{
+  font-family: 'Kablammo', cursive;
+  color:#e90000;
+  font-size:60px;
 
 }
 .todo-container{
