@@ -15,10 +15,10 @@ function App() {
     setTasks(data?.data)
   }
 
-  useEffect(()=>{
+  useEffect(() => {
     loadTask();
 
-  },[])
+  }, [])
 
 
   // add task button api 
@@ -32,6 +32,15 @@ function App() {
     setDescription("");
     loadTask();
   }
+
+  // delet task api 
+  const  deleteTask = async(taskId) => {
+    const { data } = await axios.post('./task/delete', {
+      taskId: taskId
+    })
+    alert(data?.message);
+    loadTask();
+  }
   return (
     <>
       <div>
@@ -41,7 +50,7 @@ function App() {
       <div className="row align-items-md-stretch m-auto ">
         <div className="col-md-6 mb-4">
           <div className=" p-5 bg-warning  border rounded-3 shadow todo-container m-auto">
-          <h1 className='mb-3 text-center text-dark'>All Task</h1>
+            <h1 className='mb-3 text-center text-dark'>All Task</h1>
 
             {
               tasks.map((task) => {
@@ -53,6 +62,10 @@ function App() {
                         <h3 class=" mb-3 text-black lh-1 ">{task?.title}</h3>
                         <p className='text-black mb-0'>{task?.description}</p>
                       </div>
+                      <button type='button' className='btn bg-danger-subtle shadow '
+                        onClick={() => {
+                          deleteTask(task?._id);
+                        }}>❌</button>
                     </div>
 
 
