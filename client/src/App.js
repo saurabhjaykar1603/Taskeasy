@@ -1,10 +1,22 @@
 import React,{useState, useEffect} from 'react'
+import axios from 'axios'
 import './App.css'
 
 
 function App() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+
+  // add task button api 
+  const addTask = async()=>{
+    const {data} = await axios.post('/task', {
+      title:title,
+      description:description
+    })
+    alert(data?.message);
+    setTitle("");
+    setDescription("");
+  }
   return (
     <>
       <div>
@@ -28,7 +40,7 @@ function App() {
               onChange={(e)=>{
                 setDescription(e.target.value);
               }} />
-              <button className="btn btn-warning mt-3" type="button">Add Task</button>
+              <button className="btn btn-warning mt-3" type="button" onClick={addTask}>Add Task</button>
             </div>
           </div>
         </div>
