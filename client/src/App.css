@@ -13,10 +13,17 @@ font-family: 'Bree Serif', serif;
 
 }
 .todo-container{
-height:260px;
+height:350px;
+overflow-y:scroll;
 
 }
 .todo-form-container{
-height:260px;
+height:350px;
 background-color:#3622e6b0;
 }
+/* .task-card{
+   background-color:white; 
+  border:1px solid black; 
+
+
+} */
