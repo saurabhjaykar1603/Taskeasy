@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import './App.css'
+import Navbar from './Navbar';
 
 
 function App() {
@@ -43,6 +44,8 @@ function App() {
   }
   return (
     <>
+    <Navbar/>
+
       <div>
         <h1 className='text-center mb-4 mt-4 taskeasy-title'>Task Easy 📝</h1>
       </div>
