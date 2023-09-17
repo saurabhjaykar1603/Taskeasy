@@ -56,13 +56,13 @@ function App() {
               tasks.map((task) => {
                 return (
                   <div className='task-card'>
-                    <div class="d-flex align-items-center px-3 py-2 my-4 text-white bg-white rounded shadow">
+                    <div class="d-flex align-items-center px-3 py-2 my-4 text-white bg-white rounded shadow tast-input-container">
                       {/* <img class="me-3" src="/docs/5.3/assets/brand/bootstrap-logo-white.svg" alt="" width="48" height="38"> */}
                       <div class="lh-0 ">
                         <h3 class=" mb-3 text-black lh-1 ">{task?.title}</h3>
                         <p className='text-black mb-0'>{task?.description}</p>
                       </div>
-                      <button type='button' className='btn bg-danger-subtle shadow '
+                      <button type='button' className='btn bg-danger-subtle shadow task-delet-button '
                         onClick={() => {
                           deleteTask(task?._id);
                         }}>❌</button>

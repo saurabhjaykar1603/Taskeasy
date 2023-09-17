@@ -31,4 +31,14 @@ background-color:#3622e6b0;
   border:0.5px solid gray;
   box-shadow:0px 1px 10px 1px gray;
 }
+.tast-input-container{
+  position: relative;
 
+}
+.task-delet-button {
+  position: absolute;
+  right: 20px;
+}
+.task-delet-button:hover {
+  background-color: black !important;
+}
